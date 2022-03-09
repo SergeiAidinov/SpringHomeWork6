@@ -1,31 +1,33 @@
 package ru.yandex.incoming34.SpringHomeWork6.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "courses")
-public class CourseEntity {
 
-	@Id
-	@Column(name = "id")
-	Long courseId;
+public class CourseEntity extends CourseAbstract{
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "link_student_course",
+			joinColumns = @JoinColumn(name = "course_id"),
+			inverseJoinColumns = @JoinColumn(name = "student_id"))
+	private List<StudentBriefEntity> studentEntityList;
 
-	@Column(name = "name")
-	String courseName;
-
-	public Long getCourseId() {
-		return courseId;
+	public List<StudentBriefEntity> getStudentEntityList() {
+		return studentEntityList;
 	}
 
-	public String getCourseName() {
-		return courseName;
-	}
-
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
+	public void setStudentEntityList(List<StudentBriefEntity> studentEntityList) {
+		this.studentEntityList = studentEntityList;
 	}
 
 }

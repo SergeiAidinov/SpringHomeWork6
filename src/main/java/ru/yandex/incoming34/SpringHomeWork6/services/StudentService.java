@@ -15,12 +15,12 @@ public class StudentService {
 	StudentRepo studentRepo;
 	
 	public Iterable<StudentEntity> getAllStudents() {
-		return studentRepo.findAll();
+		return studentRepo.findAllStudents();
 	}
 
 	public Optional<StudentEntity> getStudentById(Long studentId) {
 		// TODO Auto-generated method stub
-		return studentRepo.findById(studentId);
+		return studentRepo.findStudentById(studentId);
 	}
 
 }
