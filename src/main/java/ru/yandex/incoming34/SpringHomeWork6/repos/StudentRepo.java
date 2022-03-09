@@ -19,4 +19,7 @@ public interface StudentRepo extends CrudRepository<StudentAbstract, Long>{
 	@Query(nativeQuery = true, value ="SELECT id, name FROM students WHERE id = :id")
 	Optional<StudentEntity> findStudentById(@Param("id") Long studentId);
 
+	@Query(nativeQuery = true, value = "DELETE FROM students WHERE id = :id")
+	StudentAbstract deleteStudentById(@Param("id") Long studentId);
+
 }

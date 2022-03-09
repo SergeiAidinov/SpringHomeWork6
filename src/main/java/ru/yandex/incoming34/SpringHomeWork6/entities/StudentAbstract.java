@@ -13,6 +13,9 @@ public abstract class StudentAbstract {
 	@Column(name = "id")
 	private Long studentId;
 	
+	@Column(name = "name")
+	private String studentName;
+	
 	public Long getStudentId() {
 		return studentId;
 	}
@@ -24,7 +27,4 @@ public abstract class StudentAbstract {
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-
-	@Column(name = "name")
-	private String studentName;
 }

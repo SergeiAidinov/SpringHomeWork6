@@ -2,13 +2,10 @@ package ru.yandex.incoming34.SpringHomeWork6.services;
 
 import java.util.Map;
 import java.util.Optional;
-
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
-
 import ru.yandex.incoming34.SpringHomeWork6.entities.StudentEntity;
 import ru.yandex.incoming34.SpringHomeWork6.repos.StudentRepo;
 
@@ -37,7 +34,9 @@ public class StudentService {
 	}
 
 	public void deleteStudentById(Long studentId) {
-		studentRepo.deleteById(studentId);
+		Map<String, Long> namedParameters = Map.of("studentId", studentId);
+		String sql = "DELETE FROM students WHERE id = :studentId";
+		namedParameterJdbcTemplate.update(sql, namedParameters);
 
 	}
 

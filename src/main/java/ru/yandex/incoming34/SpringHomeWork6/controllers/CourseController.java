@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import ru.yandex.incoming34.SpringHomeWork6.entities.CourseAbstract;
 import ru.yandex.incoming34.SpringHomeWork6.entities.CourseBriefEntity;
 import ru.yandex.incoming34.SpringHomeWork6.entities.CourseEntity;
 import ru.yandex.incoming34.SpringHomeWork6.services.CourseService;
